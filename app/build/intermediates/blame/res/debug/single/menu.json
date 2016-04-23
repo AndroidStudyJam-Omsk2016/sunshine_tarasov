@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\Flame\\AndroidStudioProjects\\Sunshine-Version-2-1.01_hello_world\\app\\build\\intermediates\\res\\merged\\debug\\menu\\action_refresh.xml",
+        "source": "C:\\Users\\Flame\\AndroidStudioProjects\\Sunshine-Version-2-1.01_hello_world\\app\\src\\main\\res\\menu\\action_refresh.xml"
+    },
+    {
+        "merged": "C:\\Users\\Flame\\AndroidStudioProjects\\Sunshine-Version-2-1.01_hello_world\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
+        "source": "C:\\Users\\Flame\\AndroidStudioProjects\\Sunshine-Version-2-1.01_hello_world\\app\\src\\main\\res\\menu\\main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Flame\\AndroidStudioProjects\\Sunshine-Version-2-1.01_hello_world\\app\\build\\intermediates\\res\\merged\\debug\\menu\\detail.xml",
+        "source": "C:\\Users\\Flame\\AndroidStudioProjects\\Sunshine-Version-2-1.01_hello_world\\app\\src\\main\\res\\menu\\detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\Flame\\AndroidStudioProjects\\Sunshine-Version-2-1.01_hello_world\\app\\build\\intermediates\\res\\merged\\debug\\menu\\detail_share.xml",
+        "source": "C:\\Users\\Flame\\AndroidStudioProjects\\Sunshine-Version-2-1.01_hello_world\\app\\src\\main\\res\\menu\\detail_share.xml"
+    }
+]
