@@ -1,7 +1,12 @@
 package com.example.android.sunshine.app;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -16,13 +21,48 @@ public class MainActivity extends ActionBarActivity {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new ForecastFragment())
                     .commit();
+
         }
+        Log.d("OnCreate", "Call OnCreate");
     }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+        Log.d("onPause", "Call onPause");
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        Log.d("onStop", "Call onStop");
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        Log.d("onResume", "Call onResume");
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        Log.d("onStart", "Call onStart");
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        Log.d("onDestroy", "Call onDestroy");
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
         return true;
     }
 
@@ -35,10 +75,28 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
+        }
+        if (id==R.id.view_map){
+
+            SharedPreferences preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
+            String zipCode = preferences.getString(getString(R.string.location_key), getString(R.string.location_default));
+            Uri location = Uri.parse("geo:0,0?").buildUpon().appendQueryParameter("q", zipCode).build();
+            Intent intentMap = new Intent(Intent.ACTION_VIEW);
+            intentMap.setData(location);
+
+            //Если нет приложений которые могут использовать Map
+            if (intentMap.resolveActivity(getPackageManager())!=null){
+                startActivity(intentMap);
+                return true;
+            }
+            return false;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
 }
+
+
