@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\src\main\AndroidManifest.xml:2:1-41:12
+ADDED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\src\main\AndroidManifest.xml:2:1-46:12
 	package
 		ADDED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\src\main\AndroidManifest.xml:3:5-47
 		INJECTED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\src\main\AndroidManifest.xml
@@ -18,7 +18,7 @@ ADDED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_wo
 	android:name
 		ADDED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\src\main\AndroidManifest.xml:7:5-39:19
+ADDED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\src\main\AndroidManifest.xml:7:5-44:19
 MERGED from [com.android.support:appcompat-v7:21.0.3] C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\AndroidManifest.xml:16:5-19
 MERGED from [com.android.support:support-v4:21.0.3] C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\AndroidManifest.xml:16:5-19
 	android:label
@@ -71,6 +71,12 @@ ADDED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_wo
 		ADDED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\src\main\AndroidManifest.xml:33:13-55
 	android:name
 		ADDED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\src\main\AndroidManifest.xml:31:13-45
+provider#com.example.android.sunshine.app.data.WeatherProvider
+ADDED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\src\main\AndroidManifest.xml:40:9-42:51
+	android:authorities
+		ADDED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\src\main\AndroidManifest.xml:41:13-67
+	android:name
+		ADDED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\src\main\AndroidManifest.xml:42:13-49
 uses-sdk
 INJECTED from C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:21.0.3] C:\Users\Flame\AndroidStudioProjects\Sunshine-Version-2-1.01_hello_world\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\AndroidManifest.xml:15:5-42

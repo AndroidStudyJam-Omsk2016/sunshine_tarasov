@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -23,37 +22,6 @@ public class MainActivity extends ActionBarActivity {
                     .commit();
 
         }
-        Log.d("OnCreate", "Call OnCreate");
-    }
-
-    @Override
-    protected void onPause(){
-        super.onPause();
-        Log.d("onPause", "Call onPause");
-    }
-
-    @Override
-    protected void onStop(){
-        super.onStop();
-        Log.d("onStop", "Call onStop");
-    }
-
-    @Override
-    protected void onResume(){
-        super.onResume();
-        Log.d("onResume", "Call onResume");
-    }
-
-    @Override
-    protected void onStart(){
-        super.onStart();
-        Log.d("onStart", "Call onStart");
-    }
-
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        Log.d("onDestroy", "Call onDestroy");
     }
 
 
