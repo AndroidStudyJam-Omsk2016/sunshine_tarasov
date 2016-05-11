@@ -1,8 +1,6 @@
 package com.example.android.sunshine.app;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -12,16 +10,37 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity {
 
+    private String mLocation;
+    private final String FORECASTFRAGMENT_TAG = "TAG";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mLocation = Utility.getPreferredLocation(this);
+
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new ForecastFragment())
+                    .add(R.id.container, new ForecastFragment(), FORECASTFRAGMENT_TAG)
                     .commit();
 
         }
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        String location = Utility.getPreferredLocation(this);
+
+        if (location != null && !location.equals(mLocation)){
+            ForecastFragment ff = (ForecastFragment)getSupportFragmentManager().findFragmentByTag(FORECASTFRAGMENT_TAG);
+            if (null != ff) ff.onLocationChanged();
+        }
+
+        mLocation =location;
+
     }
 
 
@@ -48,8 +67,7 @@ public class MainActivity extends ActionBarActivity {
         }
         if (id==R.id.view_map){
 
-            SharedPreferences preferences = getSharedPreferences("preferences", Context.MODE_PRIVATE);
-            String zipCode = preferences.getString(getString(R.string.location_key), getString(R.string.location_default));
+            String zipCode = Utility.getPreferredLocation(this);
             Uri location = Uri.parse("geo:0,0?").buildUpon().appendQueryParameter("q", zipCode).build();
             Intent intentMap = new Intent(Intent.ACTION_VIEW);
             intentMap.setData(location);

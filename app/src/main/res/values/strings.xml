@@ -17,7 +17,7 @@
     <string name="location_default">644001</string>
     <string name="location_label">Location</string>
 
-    <!-- Strings of location settings -->
+    <!-- Strings of Temperature Unit -->
     <string name="temperature_lable">Temperature Unit</string>
     <string name="celsius">Celsius</string>
     <string name="fahrenheit">Fahrenheit</string>
