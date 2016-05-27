@@ -4,6 +4,7 @@ package com.example.android.sunshine.app;
  * Created by Flame on 15.04.2016.
  */
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,12 +15,14 @@ import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.android.sunshine.app.data.WeatherContract;
+import com.example.android.sunshine.app.sync.SunshineSyncAdapter;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -75,6 +78,25 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+//        if (id == R.id.action_refresh) {
+//            updateWeather();
+//            return true;
+//        }
+        if (id == R.id.view_map) {
+            openPreferredLocationInMap();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -87,16 +109,9 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
     }
 
     private void updateWeather() {
-        FetchWeatherTask weatherTask = new FetchWeatherTask(getActivity());
-        String zipCode = Utility.getPreferredLocation(getActivity());
-        weatherTask.execute(zipCode);
+        SunshineSyncAdapter.syncImmediately(getActivity());
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        updateWeather();
-//    }
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -190,6 +205,28 @@ public class ForecastFragment extends Fragment implements LoaderManager.LoaderCa
 
     }
 
+    private void openPreferredLocationInMap() {
+        // Using the URI scheme for showing a location found on a map.  This super-handy
+        // intent can is detailed in the "Common Intents" page of Android's developer site:
+        // http://developer.android.com/guide/components/intents-common.html#Maps
+        if ( null != mForecastAdapter ) {
+            Cursor c = mForecastAdapter.getCursor();
+            if ( null != c ) {
+                c.moveToPosition(0);
+                String posLat = c.getString(COL_COORD_LAT);
+                String posLong = c.getString(COL_COORD_LONG);
+                Uri geoLocation = Uri.parse("geo:" + posLat + "," + posLong);
+
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(geoLocation);
+
+                if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+
+        }
+    }
 
 }
 

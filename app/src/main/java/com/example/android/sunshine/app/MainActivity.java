@@ -7,6 +7,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.android.sunshine.app.sync.SunshineSyncAdapter;
+
 
 public class MainActivity extends ActionBarActivity implements ForecastFragment.Callback{
 
@@ -39,6 +41,7 @@ public class MainActivity extends ActionBarActivity implements ForecastFragment.
         ForecastFragment forecastFragment = ((ForecastFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.fragment_forecast));
         forecastFragment.specialDay(!mTwoPane);
+        SunshineSyncAdapter.initializeSyncAdapter(this);
 
     }
 
@@ -83,20 +86,6 @@ public class MainActivity extends ActionBarActivity implements ForecastFragment.
             startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
-        if (id==R.id.view_map){
-
-            String zipCode = Utility.getPreferredLocation(this);
-            Uri location = Uri.parse("geo:0,0?").buildUpon().appendQueryParameter("q", zipCode).build();
-            Intent intentMap = new Intent(Intent.ACTION_VIEW);
-            intentMap.setData(location);
-
-            //Если нет приложений которые могут использовать Map
-            if (intentMap.resolveActivity(getPackageManager())!=null){
-                startActivity(intentMap);
-                return true;
-            }
-            return false;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -120,6 +109,7 @@ public class MainActivity extends ActionBarActivity implements ForecastFragment.
 
 
     }
+
 }
 
 

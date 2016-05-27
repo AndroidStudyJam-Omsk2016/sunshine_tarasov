@@ -1342,7 +1342,6 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0e002e;
         public static final int action_mode_bar_stub=0x7f0e002d;
         public static final int action_mode_close_button=0x7f0e0020;
-        public static final int action_refresh=0x7f0e0050;
         public static final int action_settings=0x7f0e0051;
         public static final int action_share=0x7f0e0052;
         public static final int activity_chooser_view_content=0x7f0e0021;
@@ -1409,7 +1408,7 @@ containing a value of this type.
         public static final int title=0x7f0e0027;
         public static final int up=0x7f0e0008;
         public static final int useLogo=0x7f0e0012;
-        public static final int view_map=0x7f0e0053;
+        public static final int view_map=0x7f0e0050;
         public static final int weather_detail_container=0x7f0e003f;
         public static final int withText=0x7f0e001a;
         public static final int wrap_content=0x7f0e001d;
@@ -1484,25 +1483,34 @@ containing a value of this type.
         public static final int action_share=0x7f070013;
         public static final int app_name=0x7f070014;
         public static final int celsius=0x7f070015;
-        public static final int fahrenheit=0x7f070016;
-        public static final int format_full_friendly_date=0x7f070017;
-        public static final int format_humidity=0x7f070018;
-        public static final int format_pressure=0x7f070019;
-        public static final int format_temperature=0x7f07001a;
-        public static final int format_wind_kmh=0x7f07001b;
-        public static final int format_wind_mph=0x7f07001c;
-        public static final int hello_world=0x7f07001d;
-        public static final int imperial_value=0x7f07001e;
-        public static final int location_default=0x7f07001f;
-        public static final int location_key=0x7f070020;
-        public static final int location_label=0x7f070021;
-        public static final int metric_value=0x7f070022;
-        public static final int temperature_key=0x7f070023;
-        public static final int temperature_lable=0x7f070024;
-        public static final int title_activity_detail=0x7f070025;
-        public static final int title_activity_settings=0x7f070026;
-        public static final int today=0x7f070027;
-        public static final int tomorrow=0x7f070028;
+        public static final int content_authority=0x7f070016;
+        public static final int fahrenheit=0x7f070017;
+        public static final int format_full_friendly_date=0x7f070018;
+        public static final int format_humidity=0x7f070019;
+        public static final int format_notification=0x7f07001a;
+        public static final int format_pressure=0x7f07001b;
+        public static final int format_temperature=0x7f07001c;
+        public static final int format_wind_kmh=0x7f07001d;
+        public static final int format_wind_mph=0x7f07001e;
+        public static final int hello_world=0x7f07001f;
+        public static final int imperial_value=0x7f070020;
+        public static final int location_default=0x7f070021;
+        public static final int location_key=0x7f070022;
+        public static final int location_label=0x7f070023;
+        public static final int metric_value=0x7f070024;
+        public static final int pref_enable_notifications_default=0x7f070025;
+        public static final int pref_enable_notifications_false=0x7f070026;
+        public static final int pref_enable_notifications_key=0x7f070027;
+        public static final int pref_enable_notifications_label=0x7f070028;
+        public static final int pref_enable_notifications_true=0x7f070029;
+        public static final int pref_last_notification=0x7f07002a;
+        public static final int sync_account_type=0x7f07002b;
+        public static final int temperature_key=0x7f07002c;
+        public static final int temperature_lable=0x7f07002d;
+        public static final int title_activity_detail=0x7f07002e;
+        public static final int title_activity_settings=0x7f07002f;
+        public static final int today=0x7f070030;
+        public static final int tomorrow=0x7f070031;
     }
     public static final class style {
         public static final int ActionBar_Solid_Sunshine_NoTitle=0x7f0b0065;
@@ -1749,7 +1757,9 @@ containing a value of this type.
         public static final int Widget_AppCompat_Toolbar_Button_Navigation=0x7f0b00ee;
     }
     public static final class xml {
-        public static final int preferences=0x7f060000;
+        public static final int authenticator=0x7f060000;
+        public static final int preferences=0x7f060001;
+        public static final int syncadapter=0x7f060002;
     }
     public static final class styleable {
         /** Attributes that can be used with a ActionBar.

@@ -21,8 +21,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.android.sunshine.app.data.WeatherContract;
+import com.example.android.sunshine.app.sync.SunshineSyncAdapter;
 
 public class DetailActivity extends ActionBarActivity {
+
+//    @Override
+//    public void onResume(){
+//        super.onResume();
+//        updateWeather();
+//    }
+
+
+
+    private void updateWeather() {
+        SunshineSyncAdapter.syncImmediately(this);
+    }
 
     public static final String DATE_KEY = "date";
 
@@ -208,11 +221,13 @@ public class DetailActivity extends ActionBarActivity {
                 frendlyDateView.setText(dateString);
 
                 //get Temperature
+                double high = data.getDouble(COL_WEATHER_MAX_TEMP);
                 boolean isMetric = Utility.isMetric(getActivity());
-                String high = Utility.formatTemperature(getActivity(), data.getDouble(COL_WEATHER_MAX_TEMP), isMetric);
-                highTempView.setText(high);
-                String low = Utility.formatTemperature(getActivity(), data.getDouble(COL_WEATHER_MIN_TEMP), isMetric);
-                lowTempView.setText(low);
+                String highString = Utility.formatTemperature(getActivity(), high);
+                highTempView.setText(highString);
+                double low = data.getDouble(COL_WEATHER_MIN_TEMP);
+                String lowString = Utility.formatTemperature(getActivity(), low);
+                lowTempView.setText(lowString);
 
                 //get Humidity, Wind and Pressure
                 float humidity = data.getFloat(COL_HUMIDITY);
@@ -240,6 +255,8 @@ public class DetailActivity extends ActionBarActivity {
 
         }
 
+
+
         @Override
         public void onLoaderReset(Loader<Cursor> loader) {
         }
@@ -250,4 +267,6 @@ public class DetailActivity extends ActionBarActivity {
             super.onActivityCreated(savedInstanceState);
         }
     }
+
+
 }
